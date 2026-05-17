@@ -4,6 +4,7 @@ import SupplierCard from "./_components/SupplierCard";
 import SupplierSidebar from "./_components/SupplierSidebar";
 import AdsSidebar from "./_components/AdsSidebar";
 import IndustryCharts from "./_components/IndustryCharts";
+
 import {
   industryTags,
   relatedIndustries,
@@ -15,16 +16,20 @@ import {
 const ITEMS_PER_PAGE = 8;
 
 interface Props {
-  searchParams: {
+  params?: Promise<Record<string, string>>;
+  searchParams?: Promise<{
     page?: string;
-  };
+  }>;
 }
 
-export default function SuppliersPage({
+export default async function SuppliersPage({
   searchParams,
 }: Props) {
+  const resolvedSearchParams =
+    await searchParams;
+
   const currentPage = Number(
-    searchParams.page || 1
+    resolvedSearchParams?.page || 1
   );
 
   const totalPages = Math.ceil(
@@ -43,8 +48,9 @@ export default function SuppliersPage({
     <main className="min-h-screen bg-neutral-100 py-6">
       <div className="mx-auto max-w-[1800px] px-4">
         <div className="grid grid-cols-1 gap-4 2xl:grid-cols-[280px_minmax(0,1fr)_400px]">
+          
           {/* LEFT SIDEBAR */}
-          <div className=" self-start">
+          <div className="self-start">
             <div className="sticky top-5">
               <SupplierSidebar
                 categories={supplierCategories}
@@ -70,6 +76,7 @@ export default function SuppliersPage({
 
             {/* PAGINATION */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              
               {/* PREV */}
               <Link
                 href={`?page=${Math.max(
@@ -136,12 +143,13 @@ export default function SuppliersPage({
             </div>
           </section>
 
-          {/* ADS RIGHT */}
-      <div className="hidden xl:block">
-        <div className="space-y-5">
-          <IndustryCharts />
-        </div>
-      </div>
+          {/* RIGHT SIDEBAR */}
+          <div className="hidden xl:block">
+            <div className="space-y-5">
+              <IndustryCharts />
+              <AdsSidebar />
+            </div>
+          </div>
         </div>
       </div>
     </main>

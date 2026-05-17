@@ -13,7 +13,7 @@ const ads = [
     title: "Đăng Tin Nhà Cung Cấp VIP",
     desc: "Hiển thị TOP đầu ngành nghề, tăng tiếp cận khách hàng & dự án lớn.",
     image:
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW50ZXJpb3J8ZW58MHx8MHx8fDA%3D",
     button: "Đăng ký ngay",
     href: "#",
     badge: "TOP HOT",
