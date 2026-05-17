@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-reddit-sans), ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #fa6819;
+  --color-secondary: #306bd9;
+  --color-text-primary: #222222;
+  --color-text-secondary: #306bd9;
+  --color-text-tertiary: #595959;
+  --color-text-inverse: #ffffff;
+  --color-surface-base: #ffffff;
+  --color-surface-muted: #f4f4f4;
+  --color-surface-raised: #fa6819;
+  --color-border-strong: #595959;
+
+  --radius-pill: 9999px;
+  
+  --animate-instant: instant 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  body {
+    @apply text-text-primary;
+  }
+}
+
+@keyframes instant {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
