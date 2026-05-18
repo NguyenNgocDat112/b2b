@@ -24,7 +24,7 @@ import {
           <Globe className=" text-neutral-400" size={18} />
   
           <p className="text-[15px] text-neutral-700">
-            NGÀNH:
+            Ngành:
             <span className="ml-2 font-semibold text-sky-700">
               {category}
             </span>
