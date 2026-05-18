@@ -19,7 +19,7 @@ import {
     hotline,
   }: Props) {
     return (
-      <div className="mt-2 flex flex-col gap-2">
+      <div className="mt-2 flex flex-col gap-1">
         <div className="flex items-start gap-3">
           <Globe className=" text-neutral-400" size={18} />
   
