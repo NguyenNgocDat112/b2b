@@ -41,92 +41,15 @@ export default function MembershipPage() {
         <section className="relative mt-4">
           {/* RED BANNER */}
           <div className="relative overflow-hidden rounded-[28px] bg-[#8f0a08]">
-            {/* BACKGROUND BUILDINGS */}
-            <div className="absolute inset-0 hidden xl:block">
-              <div className="absolute bottom-0 right-10 flex items-end gap-4 opacity-70">
-                <div className="h-[180px] w-[70px] bg-[#ff8a84]" />
-                <div className="h-[280px] w-[80px] bg-[#ff746d]" />
-                <div className="h-[150px] w-[65px] bg-[#dd0000]" />
-                <div className="h-[240px] w-[80px] bg-[#ff4f46]" />
-              </div>
-            </div>
-
             {/* HERO CONTENT */}
             <div className="relative z-10 grid grid-cols-1 gap-8 px-5 pb-44 pt-10 lg:px-10 xl:grid-cols-2">
               {/* LEFT */}
               <div className="max-w-4xl">
-                <h1 className="text-2xl font-extrabold leading-tight text-white md:text-4xl">
-                  Gói Hội viên - Tiết kiệm đến 39%
+                <h1 className="text-2xl font-bold leading-tight text-center text-white md:text-4xl">
+                 Bảng Giá Khảo Sát Vật Tư
                 </h1>
-
-                {/* NEW BADGE */}
-                <div className="mt-6 inline-flex items-center gap-3 rounded-sm bg-white p-2 shadow-lg">
-                  <span className="rounded-sm bg-[#d90000] px-3 py-2 text-xs font-bold text-white">
-                    MỚI
-                  </span>
-
-                  <span className="text-sm font-semibold text-[#1f2937] md:text-base">
-                    Ra mắt lựa chọn - Gói 1 tháng
-                  </span>
-                </div>
-
-                {/* FEATURES */}
-                <div className="mt-6 space-y-2">
-                  <div className="flex items-start gap-3">
-                    <BadgePercent className="mt-1 h-5 w-5 shrink-0 text-white" />
-
-                    <p className="text-sm leading-7 text-white/90 md:text-base">
-                      Có nhiều lựa chọn phù hợp với ngân sách đăng tin,
-                      giúp tối ưu hiệu quả bán hàng
-                    </p>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <BadgePercent className="mt-1 h-5 w-5 shrink-0 text-white" />
-
-                    <p className="text-sm leading-7 text-white/90 md:text-base">
-                      Voucher giảm giá linh hoạt, phù hợp với nhiều lựa
-                      chọn đăng tin
-                    </p>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <BadgePercent className="mt-1 h-5 w-5 shrink-0 text-white" />
-
-                    <p className="text-sm leading-7 text-white/90 md:text-base">
-                      Sử dụng các tính năng tiện ích nâng cao dành riêng
-                      cho Hội viên
-                    </p>
-                  </div>
-                </div>
-
-                <p className="mt-6 text-sm text-[#ffb6b6] md:text-base">
-                  Giá của các gói bên dưới chưa bao gồm 8% VAT.
-                </p>
               </div>
-
               {/* RIGHT */}
-              <div className="hidden items-center justify-center xl:flex">
-                <div className="rotate-[-8deg] rounded-[24px] bg-[#2b2b2b] px-10 py-8 shadow-2xl">
-                  <div className="mb-4 flex items-center justify-between">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#00b4b8] text-lg font-bold text-white">
-                      %
-                    </div>
-
-                    <div className="text-lg text-yellow-400">
-                      ★ ★ ★
-                    </div>
-                  </div>
-
-                  <h2 className="text-center text-6xl font-black text-white">
-                    -39%
-                  </h2>
-
-                  <p className="mt-2 text-center text-base text-gray-300">
-                    Chi phí đăng tin
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -201,7 +124,6 @@ export default function MembershipPage() {
 
                     <button className="rounded-lg border border-[#ea3b2e] bg-white py-3 text-sm font-bold text-[#ea3b2e] transition hover:bg-red-50 md:text-sm">
                       Mua ngay
-
                     </button>
                   </div>
 

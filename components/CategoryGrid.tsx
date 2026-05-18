@@ -12,14 +12,14 @@ const categories = [
     title: 'Vật Liệu Gốc',
     count: 'Các loại vật liệu',
     icon: 'https://picsum.photos/seed/vatlieugoc/200/200',
-    subItems: ['Khoáng Xây Dựng', 'Cốt Liệu Xây Dựng', 'Phụ Gia Khoáng', 'Xi Măng', 'Thép', 'Tôn', 'Nhôm', 'Kính', 'Gạch', 'Đá', 'Gỗ', 'Thạch Cao', 'Nhựa', 'Vật Liệu Cách Âm & Cách Nhiệt', 'Chống Thấm & Màng']
+    subItems: ['Khoáng Xây Dựng', 'Cốt Liệu Xây Dựng', 'Phụ Gia Khoáng', 'Xi Măng Xây Dựng', 'Thép Xây Dựng', 'Tôn Xây Dựng', 'Nhôm Xây Dựng', 'Kính Xây Dựng', 'Gạch Xây Dựng' , 'Đá Xây Dựng', 'Gỗ Xây Dựng', 'Thạch Cao Xây Dựng', 'Nhựa Xây Dựng', 'Cách Âm & Cách Nhiệt', 'Chống Thấm & Màng']
   },
   {
     id: 'noi-that',
     title: 'Nội Thất',
     count: 'Nội thất gia đình',
     icon: 'https://picsum.photos/seed/noithat/200/200',
-    subItems: ['Bàn & ghế', 'Tủ, kệ & lưu trữ', 'Giường, nệm & chăn ga', 'Sofa & nội thất bọc nệm', 'Bếp & tủ bếp', 'Vách ngăn, cửa & lam trang trí', 'Trần, tường & bề mặt hoàn thiện', 'Rèm, thảm & trang trí', 'Đèn & Chiếu Sáng', 'Nội thất ngoài trời', 'Quầy, kệ & trưng bày thương mại']
+    subItems: ['Bàn & ghế', 'Tủ, kệ & lưu trữ', 'Giường, nệm & chăn ga', 'Sofa & bọc nệm', 'Bếp & tủ bếp', 'Vách ngăn, cửa & lam trang trí', 'Trần, tường & bề mặt hoàn thiện', 'Rèm, thảm & trang trí', 'Đèn & Chiếu Sáng', 'Nội thất ngoài trời', 'Quầy, kệ & trưng bày thương mại']
   },
   {
     id: 'ngoai-that-san-vuon',
@@ -72,25 +72,25 @@ export default function CategoryGrid() {
                 }
               }}
             >
-              <div className={`h-full p-2 relative z-20`}>
+              <div className={`h-full lg:h-[140px] p-2 relative z-20 flex flex-col md:flex-row items-center gap-3`}>
                 <div 
-                  className={`flex flex-col md:flex-row items-center gap-3 px-3 py-3 md:px-4 md:py-4 h-full cursor-pointer transition-all duration-200 ${
+                  className={`flex flex-col md:flex-row items-center gap-3 p-2 md:px-4 md:py-4 h-full w-full cursor-pointer transition-all duration-200 ${
                     isHovered 
                       ? 'bg-[#f4f5f5] rounded-[8px] md:shadow-[rgba(0,0,0,0.05)_0px_8px_24px]'
                       : 'bg-transparent rounded-[8px] hover:bg-gray-50'
                   }`}
                 >
-                  <div className="relative h-12 w-12 md:h-[60px] md:w-[60px] shrink-0 bg-transparent flex items-center justify-center">
+                  <div className="relative h-10 w-10 md:h-[55px] md:w-[55px] shrink-0 bg-transparent flex items-center justify-center">
                      <Image 
                       src={cat.icon} 
                       alt={cat.title} 
                       fill 
-                      className="object-contain"
+                      className="object-contain rounded-[10px]"
                       referrerPolicy="no-referrer"
                     />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="font-bold text-[14px] md:text-[16px] text-[#222222] tracking-tight">{cat.title}</h3>
+                    <h3 className="font-semibold text-[14px] md:text-[16px] text-[#222222] tracking-tight">{cat.title}</h3>
                     <p className="hidden md:block text-[13px] text-[#777777] mt-[2px] font-medium">{cat.count}</p>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ export default function CategoryGrid() {
                           <Link 
                             key={itemIdx} 
                             href="#"
-                            className={`block px-[14px] py-[10px] text-[14.5px] font-bold tracking-tight text-[#222222] hover:bg-[#f4f5f5] hover:text-[#e03c31] rounded-[6px] transition-colors leading-snug lg:min-w-[240px] ${
+                            className={`block px-[14px] py-[10px] text-[14.5px] font-semibold tracking-tight text-[#222222] hover:bg-[#f4f5f5] hover:text-[#e03c31] rounded-[6px] transition-colors leading-snug lg:min-w-[240px] ${
                               cat.id === 'thiet-ke-kien-truc' ? 'whitespace-normal' : 'whitespace-nowrap'
                             }`}
                           >

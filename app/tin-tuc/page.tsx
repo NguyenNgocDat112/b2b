@@ -1,372 +1,132 @@
-'use client';
+"use client";
 
-import React, { useMemo, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import {
-  ChevronLeft,
-  ChevronRight,
-  Eye,
-  Search,
-} from 'lucide-react';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Tag from "./_components/Tag"
+import DataAnalysisSection from "./_components/DataAnalysisSection";
+const featuredPost = {
+  title:
+    "Chiến lược vận hành và tăng doanh số Shopee mà Marketer cần biết (Phần 1)",
+  desc: "Bạn đang chạy Shopee, hay Shopee đang chạy bạn? Nhiều team e-commerce bỏ ra hàng chục triệu mỗi tháng cho...",
+  image:
+    "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1600&auto=format&fit=crop",
+  tags: [
+    "CHIẾN LƯỢC",
+    "DIGITAL MARKETING",
+    "KIẾN THỨC",
+    "TRADE MARKETING",
+  ],
+};
 
-import { posts, categories } from '../tin-tuc/data';
+const posts = [
+  {
+    title: "Chiến lược Digital Marketing cho doanh nghiệp B2B",
+    tags: ["CHIẾN LƯỢC", "DIGITAL MARKETING", "KIẾN THỨC"],
+  },
+  {
+    title:
+      "Brand Growth Model là gì? Ứng dụng Brand Growth Model trong việc xây dựng kế hoạch Marketing",
+    tags: ["BRAND MARKETING", "CHIẾN LƯỢC", "KIẾN THỨC"],
+  },
+  {
+    title:
+      "AI đang tái định nghĩa chiến lược Go-to-Market của doanh nghiệp như thế nào?",
+    tags: ["CHIẾN LƯỢC", "DIGITAL MARKETING", "KIẾN THỨC"],
+  },
+];
 
-const POSTS_PER_PAGE = 12;
 
-export default function NewsPage() {
-  const [activeCategory, setActiveCategory] =
-    useState('ALL');
 
-  const [search, setSearch] = useState('');
-
-  const [currentPage, setCurrentPage] = useState(1);
-
-  // LATEST POSTS
-  const latestPosts = posts.slice(0, 6);
-
-  // TAG COUNT
-  const tagCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-
-    posts.forEach((post) => {
-      post.tags.forEach((tag: string) => {
-        counts[tag] = (counts[tag] || 0) + 1;
-      });
-    });
-
-    return counts;
-  }, []);
-
-  // FILTER POSTS
-  const filteredPosts = useMemo(() => {
-    return posts.filter((post) => {
-      const matchCategory =
-        activeCategory === 'ALL' ||
-        post.tags.includes(activeCategory);
-
-      const matchSearch = post.title
-        .toLowerCase()
-        .includes(search.toLowerCase());
-
-      return matchCategory && matchSearch;
-    });
-  }, [activeCategory, search]);
-
-  // PAGINATION
-  const totalPages = Math.ceil(
-    filteredPosts.length / POSTS_PER_PAGE
-  );
-
-  const paginatedPosts = filteredPosts.slice(
-    (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE
-  );
-
-  // CHANGE CATEGORY
-  const handleCategory = (category: string) => {
-    setActiveCategory(category);
-    setCurrentPage(1);
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
+export default function HeroMarketingPage() {
   return (
-    <main className="min-h-screen bg-[#f5f5f5]/60">
-      
+    <main className="w-full max-w-[1420px] mx-auto overflow-hidden bg-[#1f1624] text-white">
       {/* HERO */}
-      <section className="bg-black py-16 md:py-24">
-        <div className="mx-auto max-w-[1380px] px-4">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+      <section className="relative w-full overflow-hidden">
+        {/* BG IMAGE */}
+        <div className="absolute inset-0">
+          <Image
+            src={featuredPost.image}
+            alt="hero"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,0,20,0.85)_0%,rgba(35,0,25,0.75)_50%,rgba(80,0,40,0.9)_100%)]" />
+
+        {/* BLUR */}
+        <div className="absolute right-[-120px] top-[-80px] h-[260px] w-[260px] rounded-full bg-pink-700/30 blur-3xl sm:h-[500px] sm:w-[500px]" />
+
+        <div className="absolute left-[-100px] bottom-[-100px] h-[240px] w-[240px] rounded-full bg-fuchsia-500/20 blur-3xl sm:h-[400px] sm:w-[400px]" />
+
+        {/* CONTENT */}
+        <div className="relative z-10 mx-auto flex pt-10 max-w-[1500px] flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center text-5xl font-light tracking-wide text-white md:text-7xl"
+            transition={{ duration: 1 }}
+            className="max-w-[850px]"
           >
-            Tin tức
-          </motion.h1>
-        </div>
-      </section>
+            {/* TITLE */}
+            <h1 className="mt-5 max-w-[620px] text-[28px] leading-16 text-white drop-shadow-2xl sm:text-[34px] md:text-[40px] lg:text-[42px]">
+              {featuredPost.title}
+            </h1>
 
-      {/* CATEGORY MENU */}
-      <section className="border-b border-neutral-200 bg-white">
-        <div className="mx-auto max-w-[1380px] px-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-5 py-7">
-            
-            <button
-              onClick={() => handleCategory('ALL')}
-              className={`cursor-pointer text-[13px] tracking-[1px] transition md:text-[15px] ${
-                activeCategory === 'ALL'
-                  ? 'text-pink-600'
-                  : 'text-neutral-700 hover:text-pink-600'
-              }`}
-            >
-              ALL
-            </button>
-
-            {categories.map((item) => (
-              <button
-                key={item}
-                onClick={() => handleCategory(item)}
-                className={`cursor-pointer text-[13px] tracking-[1px] transition md:text-[15px] ${
-                  activeCategory === item
-                    ? 'text-pink-600'
-                    : 'text-neutral-700 hover:text-pink-600'
-                }`}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CONTENT */}
-      <section className="mx-auto max-w-[1380px] px-4 py-10 md:py-14">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_320px]">
-          
-          {/* POSTS */}
-          <div>
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-              {paginatedPosts.map((post, index) => (
-                <motion.article
-                  key={post.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.05,
-                  }}
-                  className="group "
-                >
-                  <Link href={`/tin-tuc/${post.slug}`}>
-                    
-                    {/* IMAGE */}
-                    <div className="relative overflow-hidden rounded-[14px] bg-black">
-                      
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        width={800}
-                        height={500}
-                        className="h-[240px] w-full object-cover transition duration-700 group-hover:scale-110 group-hover:opacity-90"
-                      />
-
-                      {/* OVERLAY */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-                      {/* TOP BADGE */}
-                      <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 rounded-b-xl bg-white px-4 py-2 shadow-md">
-                        <span className="text-[10px] font-bold tracking-[2px] text-pink-700">
-                          BUILD MATERIALS
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* CONTENT */}
-                    <div className="pt-5">
-                      
-                      <h2 className="line-clamp-3 text-[20px] font-light leading-[1.25] text-neutral-800 transition duration-300 group-hover:text-pink-600 md:text-[26px]">
-                        {post.title}
-                      </h2>
-
-                      {/* META */}
-                      <div className="mt-3 flex items-center gap-5 text-sm text-neutral-400">
-                        
-                        <span>{post.date}</span>
-
-                        <div className="flex items-center gap-1">
-                          <Eye size={14} />
-                          <span>{post.views}</span>
-                        </div>
-                      </div>
-
-                      {/* DESC */}
-                      <p className="mt-1 line-clamp-2 text-[15px] leading-7 text-neutral-600">
-                        {post.description}
-                      </p>
-
-                      {/* TAGS */}
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {post.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-[4px] bg-pink-600 px-4 py-2 text-[12px] font-medium tracking-wide text-white"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Link>
-                </motion.article>
+            {/* TAGS */}
+            <div className="mt-4 flex flex-wrap gap-2 sm:gap-3">
+              {featuredPost.tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
               ))}
             </div>
 
-            {/* PAGINATION */}
-            {totalPages > 1 && (
-              <div className="mt-14 flex flex-wrap items-center justify-center gap-3">
-                
-                {/* PREV */}
-                <button
-                  disabled={currentPage === 1}
-                  onClick={() => {
-                    setCurrentPage((prev) => prev - 1);
+            {/* DESC */}
+            <p className="mt-4 max-w-[780px] text-sm leading-relaxed text-white/75 sm:text-base">
+              {featuredPost.desc}
+            </p>
+          </motion.div>
 
-                    window.scrollTo({
-                      top: 0,
-                      behavior: 'smooth',
-                    });
-                  }}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 bg-white transition hover:border-pink-500 hover:text-pink-600 disabled:cursor-not-allowed disabled:opacity-40"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-
-                {/* PAGE */}
-                {Array.from({ length: totalPages }).map(
-                  (_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setCurrentPage(index + 1);
-
-                        window.scrollTo({
-                          top: 0,
-                          behavior: 'smooth',
-                        });
-                      }}
-                      className={`h-11 min-w-[44px] rounded-full px-4 text-sm font-medium transition ${
-                        currentPage === index + 1
-                          ? 'bg-pink-600 text-white shadow-md'
-                          : 'border border-neutral-300 bg-white text-neutral-700 hover:border-pink-500 hover:text-pink-600'
-                      }`}
-                    >
-                      {index + 1}
-                    </button>
-                  )
-                )}
-
-                {/* NEXT */}
-                <button
-                  disabled={currentPage === totalPages}
-                  onClick={() => {
-                    setCurrentPage((prev) => prev + 1);
-
-                    window.scrollTo({
-                      top: 0,
-                      behavior: 'smooth',
-                    });
-                  }}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 bg-white transition hover:border-pink-500 hover:text-pink-600 disabled:cursor-not-allowed disabled:opacity-40"
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* RIGHT SIDEBAR */}
-          <aside className="space-y-6">
-            
-            {/* SEARCH */}
-            <div className="rounded-2xl border border-neutral-200 bg-white px-5 py-4 shadow-sm">
-              <div className="flex items-center gap-3">
-                
-                <Search
-                  className="text-neutral-400"
-                  size={18}
-                />
-
-                <input
-                  type="text"
-                  placeholder="Tìm kiếm tin tức..."
-                  value={search}
-                  onChange={(e) =>
-                    setSearch(e.target.value)
-                  }
-                  className="w-full bg-transparent text-sm outline-none placeholder:text-neutral-400"
-                />
-              </div>
-            </div>
-
-            {/* ADS */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="overflow-hidden rounded-2xl bg-white shadow-sm"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
-                alt="ads"
-                width={500}
-                height={600}
-                className="h-auto w-full object-cover"
-              />
-            </motion.div>
-
-            {/* SIDEBAR CONTENT */}
-            <div className="rounded-2xl bg-white p-6 shadow-sm">
-              
-              {/* LATEST POSTS */}
-              <div>
-                <h3 className="border-b border-neutral-200 pb-3 text-[28px] font-light text-neutral-800">
-                  Bài viết mới nhất
+          {/* BOTTOM CARDS */}
+          <motion.div
+            initial={{ opacity: 0, y: 120 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 1 }}
+            className="relative mt-10 grid gap-4 rounded-tl-xl rounded-tr-xl border border-white/10 bg-white/10 p-3 backdrop-blur-xl sm:mt-14 sm:gap-6 sm:p-6 md:grid-cols-2 xl:grid-cols-3"
+          >
+            {posts.map((post, index) => (
+              <motion.div
+                whileHover={{
+                  y: -10,
+                  scale: 1.02,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15,
+                }}
+                key={index}
+                className="group cursor-pointer rounded-xl border border-transparent p-3 transition-all duration-500 hover:border-pink-500/40 hover:bg-white/[0.06]"
+              >
+                <h3 className="text-[14px] leading-snug text-white transition-all duration-300 group-hover:text-pink-300 sm:text-[16px]">
+                  {post.title}
                 </h3>
 
-                <div className="mt-5 space-y-4">
-                  {latestPosts.map((item) => (
-                    <Link
-                      key={item.id}
-                      href={`/kien-thuc/${item.slug}`}
-                      className="block border-b border-neutral-100 pb-4 text-[15px] leading-7 text-neutral-600 transition hover:text-pink-600"
-                    >
-                      {item.title}
-                    </Link>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
                   ))}
                 </div>
-              </div>
-
-              {/* TAG */}
-              <div className="mt-8">
-                
-                <h3 className="text-[28px] font-light text-neutral-800">
-                  Tag
-                </h3>
-
-                <div className="mt-2 h-[2px] w-14 bg-pink-500" />
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {Object.entries(tagCounts).map(
-                    ([tag, count]) => (
-                      <button
-                        key={tag}
-                        onClick={() =>
-                          handleCategory(tag)
-                        }
-                        className={`rounded-full border px-4 py-2 text-[13px] transition ${
-                          activeCategory === tag
-                            ? 'border-pink-500 bg-pink-500 text-white'
-                            : 'border-neutral-200 bg-white text-neutral-500 hover:border-pink-500 hover:text-pink-600'
-                        }`}
-                      >
-                        {tag} ({count})
-                      </button>
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-          </aside>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
+
+       
       </section>
+
+
+      <DataAnalysisSection/>
     </main>
   );
 }

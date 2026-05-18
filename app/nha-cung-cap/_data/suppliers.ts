@@ -248,8 +248,8 @@ address: [
     verified: true,
 
     description: [
-      "Chuyên sản xuất bulong cường lực tiêu chuẩn quốc tế",
-      "Gia công ốc vít theo yêu cầu bản vẽ kỹ thuật",
+      "Bulong cường lực tiêu chuẩn quốc tế",
+      "Ốc vít theo yêu cầu bản vẽ kỹ thuật",
       "Nhập khẩu và phân phối inox 304, 316",
     ],
 

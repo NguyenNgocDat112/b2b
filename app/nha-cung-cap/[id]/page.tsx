@@ -227,14 +227,7 @@ export default function SupplierDetailPage() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <div className="flex gap-2">
-                    <button className="flex-1 py-2.5 bg-[#e31c25] text-white rounded-[8px] font-bold text-[11px] uppercase tracking-wider hover:bg-black transition-all">
-                      Quảng bá công ty
-                    </button>
-                    <button className="flex-1 py-2.5 border border-gray-100 text-gray-500 rounded-[8px] font-bold text-[11px] uppercase tracking-wider hover:border-[#e31c25] hover:text-[#e31c25] transition-all">
-                      Cập nhật thông tin
-                    </button>
-                  </div>
+               
                 </div>
               </div>
             </motion.div>
@@ -579,56 +572,8 @@ export default function SupplierDetailPage() {
         </div>
 
         {/* Footer Alternatives Grid */}
-        <div className="mt-16 sm:mt-20 border-t border-gray-100 pt-10 sm:pt-16 mb-12">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-                <Trophy className="h-6 w-6 text-[#e31c25]" />
-                Nhà cung cấp uy tín khác
-              </h2>
-              <p className="text-gray-500 text-sm mt-1 font-medium">Lựa chọn thay thế được cộng đồng xây dựng đánh giá cao.</p>
-            </div>
-            <button className="text-[#e31c25] font-bold text-sm hover:underline flex items-center gap-2 group">
-              Xem tất cả 
-              <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              { name: 'Bê tông Rạch Chiếc', color: '#e31c25', desc: 'Chuyên cung cấp bê tông tươi cho các công trình khu vực Phía Nam.' },
-              { name: 'Đá Xây Dựng Bình Dương', color: '#f59e0b', desc: 'Mỏ đá quy mô lớn, cung cấp đá 1x2, đá xanh đạt chuẩn chất lượng.' },
-              { name: 'Gạch Đồng Tâm', color: '#e31c25', desc: 'Thương hiệu gạch ốp lát hàng đầu với thiết kế sang trọng, độ bền cao.' },
-            ].map((alt, idx) => (
-              <motion.div 
-                key={idx}
-                whileHover={{ y: -4 }}
-                className="bg-white rounded-[8px] p-6 sm:p-8 border border-gray-100 flex flex-col gap-4 transition-all duration-300 hover:border-[#e31c25]/30"
-              >
-                <div className="flex items-center gap-4">
-                  <div 
-                    className="w-12 h-12 rounded-[8px] flex items-center justify-center text-white font-black text-xl"
-                    style={{ backgroundColor: alt.color }}
-                  >
-                    {alt.name[0]}
-                  </div>
-                  <div className="space-y-0.5">
-                    <h4 className="font-bold text-[#1a1a1a] text-lg tracking-tight">{alt.name}</h4>
-                    <div className="flex items-center gap-1.5 font-bold text-[10px] text-gray-400">
-                      <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                      <span>4.9 (1.2k+)</span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-500 text-sm leading-[1.6] font-medium min-h-[2.5rem]">
-                  {alt.desc}
-                </p>
-                <button className="w-full py-2.5 border border-gray-100 rounded-[8px] text-xs font-bold text-gray-600 hover:border-[#e31c25] hover:text-[#e31c25] hover:bg-[#fff5f5] transition-all">
-                  Xem chi tiết
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+   
+   
       </div>
     </main>
   );

@@ -15,22 +15,28 @@ interface Props {
   supplier,
 }: Props) {
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white p-6">
+    <div className="rounded-lg border border-neutral-200 bg-white p-5">
       <div className="flex flex-col gap-6 xl:flex-row">
         {/* LEFT */}
         <div className="flex flex-1 gap-5">
-          <div className="flex h-8 w-8 shrink-0 text-white items-center justify-center rounded-lg bg-red-500">
-            {supplier.id}
-          </div>
-
           <div className="flex-1">
             {/* HEADER */}
+            <div className="flex items-center justify-between">
             <div className="flex flex-wrap items-center gap-3">
+                <div className="flex h-7 w-7 shrink-0 text-white items-center justify-center rounded-lg bg-red-500">
+                   {supplier.id}
+                </div>
               <Link href={`/nha-cung-cap/${supplier.id}`} className="text-2xl font-medium leading-tight text-neutral-900">
                 {supplier.name}
               </Link>
 
-                </div>
+            </div>
+             {/* ACTIONS */}
+            <SupplierActions
+              website={supplier.website}
+              />
+            </div>
+
 
             {/* INFO */}
             <div className="mt-2 flex flex-col gap-5 lg:flex-row">
@@ -54,7 +60,7 @@ interface Props {
             </div>
 
             {/* DESCRIPTION */}
-            <div className="mt-3 ">
+            <div className="my-3 flex gap-4">
               <div>
                 <h3 className="mb-1 text-lg font-bold text-red-600">
                   BULONG QUANG THÁI
@@ -69,7 +75,7 @@ interface Props {
 
               <div>
                 <h3 className="mb-1 font-bold text-red-600">
-                  Theo các tiêu chuẩn quốc tế:
+                  Tiêu chuẩn quốc tế:
                 </h3>
 
                 <ul className="text-[15px] leading-6 text-neutral-700">
@@ -79,21 +85,11 @@ interface Props {
                 </ul>
               </div>
 
-              <p className="font-semibold text-red-600">
-                Cam kết:
-                <span className="ml-2 font-normal text-neutral-700">
-                  {supplier.commitment}
-                </span>
-              </p>
             </div>
+          
 
             {/* GALLERY */}
             <SupplierGallery images={supplier.gallery} />
-
-            {/* ACTIONS */}
-            <SupplierActions
-              website={supplier.website}
-            />
           </div>
         </div>
 

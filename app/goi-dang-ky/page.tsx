@@ -3,8 +3,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Check, ArrowRight, Zap, Star, Shield, TrendingUp, Users, Globe, Headset, BarChart3, Rocket, Lock, MessageSquare, Phone, Send } from 'lucide-react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
 

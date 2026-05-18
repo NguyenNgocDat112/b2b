@@ -14,7 +14,7 @@ export default function Hero() {
         <motion.h1 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-white text-3xl md:text-5xl font-black text-center mb-2 drop-shadow-md tracking-tight uppercase"
+          className="text-white text-3xl md:text-5xl font-bold text-center mb-2 drop-shadow-md tracking-tight uppercase"
         >
           NGUYENVINH PAGE
         </motion.h1>

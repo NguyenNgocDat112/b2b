@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import SupplierCard from "./_components/SupplierCard";
 import SupplierSidebar from "./_components/SupplierSidebar";
-import AdsSidebar from "./_components/AdsSidebar";
 import IndustryCharts from "./_components/IndustryCharts";
 
 import {
@@ -147,7 +146,6 @@ export default async function SuppliersPage({
           <div className="hidden xl:block">
             <div className="space-y-5">
               <IndustryCharts />
-              <AdsSidebar />
             </div>
           </div>
         </div>

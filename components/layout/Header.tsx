@@ -55,7 +55,7 @@ export default function Header() {
           </Link>
 
           {/* Search Bar (Desktop & Tablet) */}
-          <div className="hidden md:flex flex-1 max-w-[200px] lg:max-w-[280px] ml-4">
+          <div className="hidden md:flex flex-1 max-w-[200px] lg:max-w-[260px] ml-2">
             <div className={`flex items-center w-full rounded-full px-3.5 h-[38px] transition-colors ${
               isHeaderWhite 
                 ? "bg-gray-100 focus-within:bg-gray-50 focus-within:ring-1 focus-within:ring-gray-200" 
@@ -76,17 +76,16 @@ export default function Header() {
           </div>
 
           {/* Center: Main Nav (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 shrink-0 lg:ml-auto">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-6 shrink-0 lg:ml-auto">
             {navItems.map((item, idx) => (
               <Link 
                 key={idx} 
                 href={item.href} 
-                className={`text-[14px] font-bold transition-colors flex items-center gap-1 whitespace-nowrap group ${
+                className={`text-[15px] font-semibold transition-colors flex items-center gap-1 whitespace-nowrap group ${
                   isHeaderWhite ? "text-gray-600 hover:text-black" : "text-white/90 hover:text-white"
                 }`}
               >
                 {item.label}
-                <ChevronDown className={`h-[14px] w-[14px] transition-transform duration-200 group-hover:rotate-180 ${isHeaderWhite ? "text-gray-400" : "text-white/60"}`} strokeWidth={2.5} />
               </Link>
             ))}
           </nav>

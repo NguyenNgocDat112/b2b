@@ -163,27 +163,7 @@ export default function PartnerRegistrationHero() {
       </div>
 
       {/* Floating Button */ }
-      <div className="fixed bottom-6 right-6 z-50">
-        <button className="h-[60px] w-[60px] bg-red-600 rounded-full shadow-lg shadow-red-600/30 flex items-center justify-center hover:scale-105 active:scale-95 transition-transform group relative overflow-hidden text-white">
-          <div className="absolute top-[10px] right-[10px] h-4 w-4 bg-white rounded-full flex items-center justify-center text-[8px] font-bold text-red-600 z-10 border border-red-600">Zalo</div>
-          <div className="grid grid-cols-2 gap-[2px] w-[24px] h-[24px]">
-             {/* Creating a little mosaic of icons similar to the image's floating button */}
-             <div className="bg-white rounded-[4px] flex items-center justify-center w-[11px] h-[11px]">
-               <div className="w-1.5 h-1.5 border border-red-600 rounded-sm"></div>
-             </div>
-             <div className="bg-white rounded-[4px] w-[11px] h-[11px] justify-center items-center flex">
-                <span className="w-1.5 h-[1px] bg-red-600 block mt-1"></span>
-             </div>
-             <div className="bg-white rounded-[4px] w-[11px] h-[11px] flex items-center justify-center">
-                 <div className="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-b-[4px] border-b-red-600"></div>
-             </div>
-             <div className="bg-white rounded-[2px] w-[11px] h-[11px] flex flex-col justify-center gap-[1px] items-center">
-                <span className="w-1.5 h-[1px] bg-red-600 block"></span>
-                <span className="w-1.5 h-[1px] bg-red-600 block"></span>
-             </div>
-          </div>
-        </button>
-      </div>
+   
     </section>
   );
 }
