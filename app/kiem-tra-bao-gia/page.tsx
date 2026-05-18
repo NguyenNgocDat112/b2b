@@ -29,11 +29,7 @@ export default function MembershipPage() {
         {/* TABS */}
         <div className="flex flex-wrap items-center gap-10 border-b border-gray-200">
           <button className="border-b-2 border-red-500 p-4 pb-3 text-[24px] font-bold text-[#1f2937]">
-            Khảo sát vật tư
-          </button>
-
-          <button className="p-4 pb-3 text-[24px] font-semibold text-[#9ca3af]">
-            Khảo sát dự án
+            Khảo Sát Dự Án
           </button>
         </div>
 
@@ -42,10 +38,10 @@ export default function MembershipPage() {
           {/* RED BANNER */}
           <div className="relative overflow-hidden rounded-[28px] bg-[#8f0a08]">
             {/* HERO CONTENT */}
-            <div className="relative z-10 grid grid-cols-1 gap-8 px-5 pb-44 pt-10 lg:px-10 xl:grid-cols-2">
+            <div className="relative z-10 gap-8 px-5 pb-44 pt-10 ">
               {/* LEFT */}
-              <div className="max-w-4xl">
-                <h1 className="text-2xl font-bold leading-tight text-center text-white md:text-4xl">
+              <div className="max-w-4xl w-full mx-auto flex items-center justify-center">
+                <h1 className="text-4xl font-bold leading-tight flex items-center justify-center text-center text-white ">
                  Bảng Giá Khảo Sát Vật Tư
                 </h1>
               </div>

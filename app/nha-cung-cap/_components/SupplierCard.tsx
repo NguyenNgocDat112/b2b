@@ -21,7 +21,7 @@ interface Props {
         <div className="flex flex-1 gap-5">
           <div className="flex-1">
             {/* HEADER */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-start justify-between">
             <div className="flex flex-wrap items-center gap-3">
                 <div className="flex h-7 w-7 shrink-0 text-white items-center justify-center rounded-lg bg-red-500">
                    {supplier.id}
