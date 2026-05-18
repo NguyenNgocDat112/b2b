@@ -159,7 +159,7 @@ export default function SupplierDetailPage() {
             >
               {/* Header Title Section */}
               <div className="border-b border-gray-100 pb-6">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1a1a1a] tracking-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1a1a1a] tracking-tight">
                   {supplier.name}
                 </h1>
               </div>
@@ -169,24 +169,24 @@ export default function SupplierDetailPage() {
                 <div className="lg:col-span-7 space-y-5">
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-start">
-                      <div className="sm:col-span-3 text-sm font-black text-gray-900 uppercase tracking-tighter">Giới thiệu:</div>
+                      <div className="sm:col-span-3 text-sm font-bold text-gray-900 uppercase tracking-tighter">Giới thiệu:</div>
                       <div className="sm:col-span-9 text-sm text-gray-600 leading-relaxed font-medium">
                         {supplier.description.replace(/<[^>]*>/g, '')}
                       </div>
                     </div>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center">
-                      <div className="sm:col-span-3 text-sm font-black text-gray-900 uppercase tracking-tighter">Ngày tham gia:</div>
+                      <div className="sm:col-span-3 text-sm font-bold text-gray-900 uppercase tracking-tighter">Ngày tham gia:</div>
                       <div className="sm:col-span-9 text-sm text-gray-600 font-medium">{supplier.addedOn}</div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-center">
-                      <div className="sm:col-span-3 text-sm font-black text-gray-900 uppercase tracking-tighter">Truy cập tháng:</div>
+                      <div className="sm:col-span-3 text-sm font-bold text-gray-900 uppercase tracking-tighter">Truy cập tháng:</div>
                       <div className="sm:col-span-9 text-sm text-gray-600 font-bold">{supplier.visitors}</div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-start border-t border-gray-50 pt-4">
-                      <div className="sm:col-span-3 text-sm font-black text-gray-900 uppercase tracking-tighter">Liên hệ & Mạng xã hội:</div>
+                      <div className="sm:col-span-3 text-sm font-bold text-gray-900 uppercase tracking-tighter">Liên hệ & Mạng xã hội:</div>
                       <div className="sm:col-span-9 space-y-3">
                          {[
                            { icon: MapPin, val: supplier.address },
